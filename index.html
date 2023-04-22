@@ -1,0 +1,76 @@
+<HTML>
+<HEAD>
+<TITLE>Numeros aleatorios</TITLE>
+<SCRIPT LANGUAGE="JavaScript">
+function Aleatorios(form)
+{
+var n=parseInt(form.cuantos.value, 10);
+var a=parseFloat(form.infe.value, 10);
+var b=parseFloat(form.supe.value, 10);
+var ventana;
+var salida;
+
+ventana=window.open("","","width=375,height=275, menubar=yes");
+ventana.document.write("Resultado de generar " + n);
+ventana.document.write(" n&uacute;meros aleatorios comprendidos entre ");
+ventana.document.write(a + " y " + b);
+ventana.document.write(".<BR><HR>");
+
+if (form.tipo[0].checked)	
+    {
+for (i=0;i<n; i++)
+	{salida=Math.random()*(b-a+1)+a-.5;
+	salida= Math.round(salida);
+	ventana.document.write(salida);
+	if (i!=n-1) 
+	ventana.document.write(" , ");
+	}
+ventana.document.write(" .");
+}
+else
+    {
+    for (i=0;i<n; i++)
+	{salida=Math.random()*(b-a)+a;
+	salida=Math.round(salida*1000)/1000;
+	ventana.document.write(salida);
+	if (i!=n-1) 
+	ventana.document.write(" , ");
+	}
+ventana.document.write(" .");
+    }
+}
+</SCRIPT>
+</HEAD>
+<BODY background="grey.gif">
+<H3><CENTER>Esta p&aacute;gina genera n&uacute;meros aleatorios,<BR>
+ enteros o con fracciones decimales,<BR>
+comprendidos entre los extremos inferior y superior.</CENTER></H3>
+<FORM ACTION="" METHOD="POST" NAME="form1">
+<P><BR>
+<CENTER>
+<TABLE BORDER=4 CELLSPACING=10 CELLPADDING=10>
+<TR><TH COLSPAN=2><FONT SIZE=4>N&uacute;meros Aleatorios</FONT></TH></TR>
+<TR><TD>
+<INPUT TYPE=RADIO NAME="tipo" VALUE="" CHECKED>
+Enteros<BR>
+<INPUT TYPE=RADIO NAME="tipo" VALUE="">
+Fracciones decimales<BR></TD>
+<TD ALIGN=CENTER>
+&#191;Cuantos n&uacute;meros quieres?<BR>
+<INPUT TYPE="Text" NAME="cuantos" VALUE="" SIZE="5"></TD></TR>
+<TR>
+<TD ALIGN=CENTER>
+Extremo inferior<BR>
+<INPUT TYPE="Text" NAME="infe" VALUE="" SIZE="5"></TD>
+<TD ALIGN=CENTER>
+Extremo superior<BR>
+<INPUT TYPE="Text" NAME="supe" VALUE="" SIZE="6"></TD></TR>
+<TR><TD COLSPAN=2 ALIGN=CENTER>
+<INPUT TYPE="button" NAME="boton1" VALUE="Generar N&uacute;meros"
+onClick="Aleatorios(this.form);"></TD><TR>
+</TABLE></CENTER>
+</FORM>
+<CENTER><FONT SIZE=1>Copy Right Jose M. Salinas.</FONT></CENTER>
+</BODY>
+</HTML>
+
